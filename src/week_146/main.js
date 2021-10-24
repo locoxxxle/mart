@@ -140,10 +140,13 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x272727);
 
+<<<<<<< HEAD
 //controls = new THREE.OrbitControls(camera, renderer.domElement);
 //controls.update();
 
 document.body.appendChild(renderer.domElement);
+=======
+>>>>>>> parent of beff5e9 (Update main.js)
 
 /**
  * Animation tick
