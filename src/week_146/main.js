@@ -3,7 +3,7 @@
  * Base
  */
 let timer = 0;
-const speed = 0.001;
+const speed = 0.00001;
 const planeSize = 1;
 const numOfPlanes = 2 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
