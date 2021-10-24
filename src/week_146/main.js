@@ -142,8 +142,13 @@ renderer.setClearColor(0x272727);
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //controls = new THREE.OrbitControls(camera, renderer.domElement);
 //controls.update();
+=======
+controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.update();
+>>>>>>> parent of fe217c0 (Update main.js)
 =======
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.update();
