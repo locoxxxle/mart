@@ -1,8 +1,11 @@
 
+/**
+ * Base
+ */
 let timer = 0;
 const speed = 0.007;
 const planeSize = 1;
-const numOfPlanes = 10 * 2;
+const numOfPlanes = 12 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
 
 
@@ -134,29 +137,11 @@ camera.rotation.x = Math.atan(-1 / Math.sqrt(2));
 const renderer = new THREE.WebGLRenderer({
   canvas,
   antialias: true,
-  preserveDrawingBuffer: true, 
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x272727);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-//controls = new THREE.OrbitControls(camera, renderer.domElement);
-//controls.update();
-=======
-controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.update();
->>>>>>> parent of fe217c0 (Update main.js)
-=======
-controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.update();
->>>>>>> parent of fe217c0 (Update main.js)
-
-document.body.appendChild(renderer.domElement);
-=======
->>>>>>> parent of beff5e9 (Update main.js)
 
 /**
  * Animation tick
@@ -179,28 +164,11 @@ const tick = () => {
     timer = 0;
   }
 
-
   // Render
   renderer.render(scene, camera);
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
-
-document.getElementById('save').onclick=()=>{
-  saveImage()
-}
-
-function saveImage() {
-  const canvas =  document.getElementsByTagName("canvas")[0]
-  const image = canvas.toDataURL("image/png");
-  const a = document.createElement("a");
-  a.href = image.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-  a.download="image.png"
-  a.click();
-}
-
-
-
 };
 
 tick();
@@ -216,4 +184,3 @@ function easeInOutCubic(t, b, c, d) {
   if ((t/=d/2) < 1) return c/2*t*t*t + b;
   return c/2*((t-=2)*t*t + 2) + b;
 }
-
