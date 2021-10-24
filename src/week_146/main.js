@@ -2,7 +2,7 @@
 let timer = 0;
 const speed = 10.007;
 const planeSize = 1;
-const numOfPlanes = 12 * 2;
+const numOfPlanes = 20 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
 
 
