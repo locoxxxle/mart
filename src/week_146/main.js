@@ -169,7 +169,13 @@ const tick = () => {
 
   // Render
   renderer.render(scene, camera);
+//  ExportToSVG(renderer, "test.svg");
+
+function btnSVGExportClick() {
+ // var renderer = new THREE.SVGRenderer();
+  renderer.render(scene, camera);
   ExportToSVG(renderer, "test.svg");
+}
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
