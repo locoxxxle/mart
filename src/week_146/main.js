@@ -140,8 +140,8 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x272727);
 
-controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.update();
+//controls = new THREE.OrbitControls(camera, renderer.domElement);
+//controls.update();
 
 document.body.appendChild(renderer.domElement);
 
@@ -173,7 +173,7 @@ const tick = () => {
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
 
-document.getElementById('save').onclick=()=>{
+/*document.getElementById('save').onclick=()=>{
   saveImage()
 }
 
@@ -184,8 +184,38 @@ function saveImage() {
   a.href = image.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
   a.download="image.svg"
   a.click();
+}*/
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 }
 
+function btnSVGExportClick() {
+  var rendererSVG = new THREE.SVGRenderer();
+  
+  rendererSVG.setSize(window.innerWidth, window.innerHeight);
+  rendererSVG.render(scene, camera);
+  ExportToSVG(rendererSVG, "test.svg");
+}
+
+function ExportToSVG(rendererSVG, filename) {
+  var XMLS = new XMLSerializer();
+  var svgfile = XMLS.serializeToString(rendererSVG.domElement);
+  var svgData = svgfile;
+  var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+  var svgBlob = new Blob([preface, svgData], {
+    type: "image/svg+xml;charset=utf-8"
+  });
+  var svgUrl = URL.createObjectURL(svgBlob);
+  var downloadLink = document.createElement("a");
+  
+  downloadLink.href = svgUrl;
+  downloadLink.download = filename;
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
 
 
 };
