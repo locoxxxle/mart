@@ -182,10 +182,10 @@ const tick = () => {
 
 function saveImage() {
   const canvas =  document.getElementsByTagName("canvas")[0]
-  const image = canvas.toDataURL("image/svg");
+  const image = canvas.toDataURL("image/png");
   const a = document.createElement("a");
   a.href = image.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-  a.download="image.svg"
+  a.download="image.png"
   a.click();
 }*/
 
