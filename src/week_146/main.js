@@ -8,7 +8,7 @@
 let timer = 0;
 const speed = 0.007;
 const planeSize = 1;
-const numOfPlanes = 5 * 2;
+const numOfPlanes = 12 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
 
 
@@ -169,10 +169,29 @@ const tick = () => {
 
   // Render
   renderer.render(scene, camera);
+  ExportToSVG(renderer, "test.svg");
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
 };
+
+function ExportToSVG(renderer, filename) {
+  var XMLS = new XMLSerializer();
+  var svgfile = XMLS.serializeToString(renderer.domElement);
+  var svgData = svgfile;
+  var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+  var svgBlob = new Blob([preface, svgData], {
+    type: "image/svg+xml;charset=utf-8"
+  });
+  var svgUrl = URL.createObjectURL(svgBlob);
+  var downloadLink = document.createElement("a");
+  
+  downloadLink.href = svgUrl;
+  downloadLink.download = filename;
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
 
 tick();
 
