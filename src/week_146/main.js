@@ -161,6 +161,7 @@ const tick = () => {
     timer = 0;
   }
 
+
   // Render
   renderer.render(scene, camera);
 
