@@ -6,11 +6,11 @@
 var controls;
 var camera, scene, renderer;
 var geometry, material, mesh;
- 
+
 let timer = 0;
 const speed = 0.007;
 const planeSize = 1;
-const numOfPlanes = 12 * 2;
+const numOfPlanes = 5 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
 
 
