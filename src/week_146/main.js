@@ -181,6 +181,6 @@ function constrain(n, low, high) {
 }
 
 function easeInOutCubic(t, b, c, d) {
-  if ((t/=d/8) < 1) return c/2*t*t*t + b;
-  return c/2*((t-=2)*t*t + 2) + b;
+  if ((t/=d/8) < 1) return c/8*t*t*t + b;
+  return c/8*((t-=2)*t*t + 8) + b;
 }
