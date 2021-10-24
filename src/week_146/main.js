@@ -134,6 +134,7 @@ camera.rotation.x = Math.atan(-1 / Math.sqrt(2));
 const renderer = new THREE.WebGLRenderer({
   canvas,
   antialias: true,
+  preserveDrawingBuffer: true, 
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
