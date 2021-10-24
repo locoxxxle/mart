@@ -8,7 +8,7 @@
 let timer = 0;
 const speed = 0.007;
 const planeSize = 1;
-const numOfPlanes = 10 * 2;
+const numOfPlanes = 5 * 2;
 const gap = (planeSize / numOfPlanes) * 2;
 
 
@@ -172,18 +172,16 @@ const tick = () => {
 //  ExportToSVG(renderer, "test.svg");
 
 function btnSVGExportClick() {
- // var renderer = new THREE.SVGRenderer();
-  renderer.render(scene, camera);
-  ExportToSVG(renderer, "test.svg");
+  var rendererSVG = new THREE.SVGRenderer();
+  
+  rendererSVG.setSize(window.innerWidth, window.innerHeight);
+  rendererSVG.render(scene, camera);
+  ExportToSVG(rendererSVG, "test.svg");
 }
 
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
-};
-
-function ExportToSVG(renderer, filename) {
+function ExportToSVG(rendererSVG, filename) {
   var XMLS = new XMLSerializer();
-  var svgfile = XMLS.serializeToString(renderer.domElement);
+  var svgfile = XMLS.serializeToString(rendererSVG.domElement);
   var svgData = svgfile;
   var preface = '<?xml version="1.0" standalone="no"?>\r\n';
   var svgBlob = new Blob([preface, svgData], {
@@ -198,6 +196,10 @@ function ExportToSVG(renderer, filename) {
   downloadLink.click();
   document.body.removeChild(downloadLink);
 }
+  // Call tick again on the next frame
+  window.requestAnimationFrame(tick);
+};
+
 
 tick();
 
