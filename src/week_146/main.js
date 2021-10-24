@@ -175,10 +175,10 @@ document.getElementById('save').onclick=()=>{
 
 function saveImage() {
   const canvas =  document.getElementsByTagName("canvas")[0]
-  const image = canvas.toDataURL("image/png");
+  const image = canvas.toDataURL("image/svg");
   const a = document.createElement("a");
   a.href = image.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-  a.download="image.png"
+  a.download="image.svg"
   a.click();
 }
 
