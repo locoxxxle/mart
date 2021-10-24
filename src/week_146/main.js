@@ -140,6 +140,10 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x272727);
 
+controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.update();
+
+document.body.appendChild(renderer.domElement);
 
 /**
  * Animation tick
