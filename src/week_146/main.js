@@ -86,8 +86,8 @@ const material = new THREE.ShaderMaterial({
     uSize: {
       value: new THREE.Vector3(geometry.parameters.width, geometry.parameters.height, geometry.parameters.depth).multiplyScalar(0.5),
     },
-    uThickness: { value: 0.01 },
-    uSmoothness: { value: 0.01 },
+    uThickness: { value: 0.0001 },
+    uSmoothness: { value: 0.0001 },
     uColour: { value: new THREE.Color(0xefefef) },
   },
   vertexShader: edgeVertexShader,
