@@ -116,7 +116,7 @@ for (let i = 0; i < numOfPlanes; i++) {
 /**
  * Camera
  */
-const d = 550;
+const d = 50;
 const camera = new THREE.OrthographicCamera(
   sizes.width / -d,
   sizes.width / d,
