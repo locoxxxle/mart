@@ -2,6 +2,11 @@
 /**
  * Base
  */
+
+var controls;
+var camera, scene, renderer;
+var geometry, material, mesh;
+ 
 let timer = 0;
 const speed = 0.007;
 const planeSize = 1;
